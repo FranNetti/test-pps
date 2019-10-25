@@ -1,3 +1,4 @@
+
 object Gender extends Enumeration {
   val Man, Woman = Value
 }
@@ -7,12 +8,12 @@ sealed trait Person {
   def surname: String
   def address: String
   def phoneNumber: Int
-  def gender: Gender
+  def gender: Gender.Value
   def phoneNumber_=(phoneNumber: Int): Unit
   def address_=(addr: String): Unit
 }
 
-case class Student(name:String, surname: String, gender: Gender, private var _phoneNumber: Int, private var _address: String) extends Person {
+case class Student(name:String, surname: String, gender: Gender.Value, private var _phoneNumber: Int, private var _address: String) extends Person {
 
   override def address: String = this._address
 
